@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "validate": "npm ls",
+    "db:seed": "./node_modules/.bin/sequelize db:seed:all",
     "deploy": "gcloud app deploy",
     "lint": "jshint ."
   },
