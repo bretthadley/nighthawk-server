@@ -7,12 +7,11 @@ const makeTasks = () => {
 
     for(let i = 1; i <= sprintCount; i++) {
         for(let j = 1; j <= taskCount; j++) {
-            console.log(taskId);
             tasks.push(createTask(taskId, i));
             taskId += 1;
 
+
             for(let k = 1; k <= subtaskCount; k++) {
-                console.log(taskId);
                 tasks.push(createSubtask(taskId, i, j));
                 taskId += 1;
             }
