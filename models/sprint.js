@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const globalHooks = require('../hooks/index');
 const feathersHooks = require('feathers-hooks');
 const auth = require('feathers-authentication').hooks;
-const SPRINT = require('../common/constants');
+const constants = require('../common/constants');
 
 const NAME = 'sprint';
 const model = (sequelize) => {
@@ -17,7 +17,7 @@ const model = (sequelize) => {
        },
        state: {
            type: Sequelize.STRING,
-           allowNull: false
+           allowNull: true
        }
    }, {
        freezeTableName: true,
@@ -44,7 +44,7 @@ const populateTasks = (hook) => {
 
 const populateDefaultValuesWhenNotSpecified = hook => {
     if(hook.data.state === undefined) {
-        hook.data.state = SPRINT.PLANNING;
+        hook.data.state = constants.SPRINT.PLANNING;
     }
 }
 
