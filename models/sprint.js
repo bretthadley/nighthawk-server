@@ -35,7 +35,11 @@ const populateTasks = (hook) => {
     hook.params.sequelize = {
         include: [{
             model: hook.app.get('models').task,
-            as: 'tasks'
+            as: 'tasks',
+            include: [{
+                model: hook.app.get('models').task,
+                as: 'tasks'
+            }]
         }]
     };
 
